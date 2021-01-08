@@ -69,7 +69,7 @@ public class MUI extends javax.swing.JFrame {
             name.setText(e.getName());
             mobile.setText(e.getMobileNo());
             email.setText(e.getEmail());
-            
+
             //Factory method pattern
             AcquaintanceFactory fcaller = new FriendsCaller();
             AcquaintanceFactory rcaller = new RelativesCaller();
@@ -78,29 +78,29 @@ public class MUI extends javax.swing.JFrame {
                 case 0:
                     Acquaintances perF = fcaller.callAcquaintance("PersonalFriends");
                     perF = (PersonalFriends) e;
-                    one.setText((((PersonalFriends)perF).getEvents()));
-                    two.setText((((PersonalFriends)perF).getAContext()));
-                    three.setText((((PersonalFriends)perF).getADate()));
+                    one.setText((((PersonalFriends) perF).getEvents()));
+                    two.setText((((PersonalFriends) perF).getAContext()));
+                    three.setText((((PersonalFriends) perF).getADate()));
                     break;
                 case 1:
                     Acquaintances rel = fcaller.callAcquaintance("Relatives");
                     rel = (Relatives) e;
-                    one.setText((((Relatives)rel).getBDate()));
-                    two.setText((((Relatives)rel).getLDate()));
+                    one.setText((((Relatives) rel).getBDate()));
+                    two.setText((((Relatives) rel).getLDate()));
                     break;
                 case 2:
                     Acquaintances proF = fcaller.callAcquaintance("ProfessionalFriends");
                     proF = (ProfessionalFriends) e;
-                    one.setText((((ProfessionalFriends)proF).getCommonInterests()));
+                    one.setText((((ProfessionalFriends) proF).getCommonInterests()));
                     break;
                 case 3:
                     Acquaintances ca = fcaller.callAcquaintance("CasualAcquaintances");
                     ca = (CasualAcquaintances) e;
-                    one.setText((((CasualAcquaintances)ca).getWhenWhere()));
+                    one.setText((((CasualAcquaintances) ca).getWhenWhere()));
                     two.setVisible(true);
                     three.setVisible(true);
-                    two.setText((((CasualAcquaintances)ca).getCircumstances()));
-                    three.setText((((CasualAcquaintances)ca).getOtherInfo()));
+                    two.setText((((CasualAcquaintances) ca).getCircumstances()));
+                    three.setText((((CasualAcquaintances) ca).getOtherInfo()));
                     break;
                 default:
                     break;
@@ -176,7 +176,7 @@ public class MUI extends javax.swing.JFrame {
             jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Display Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DialogInput", 1, 16)));
         }
     }
-    
+
     //Made private constructor so that only singleton can instantiate the class
     private MUI() {
         initComponents();
@@ -185,7 +185,7 @@ public class MUI extends javax.swing.JFrame {
         jXTable1.setModel(model);
         setUpTableData();
     }
-    
+
     //method for getting unique instance following singleton pattern.
     public static MUI getMUIInstance() {
         if (mg == null) {
@@ -200,6 +200,7 @@ public class MUI extends javax.swing.JFrame {
         ArrayList<Acquaintances> list;
         try {
             list = a.get(jList1.getSelectedIndex());
+            System.out.println(jList1.getSelectedIndex());
         } catch (Exception e) {
             return;
         }
@@ -240,6 +241,7 @@ public class MUI extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         details = new javax.swing.JTextPane();
@@ -378,6 +380,13 @@ public class MUI extends javax.swing.JFrame {
             }
         });
 
+        jButton12.setText("Display All");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -418,6 +427,10 @@ public class MUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton12)
+                .addGap(240, 240, 240))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4, jButton5, jButton6, jButton7, jButton8});
@@ -443,13 +456,15 @@ public class MUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton6)
                         .addComponent(jButton7)))
-                .addGap(49, 49, 49)
+                .addGap(18, 18, 18)
+                .addComponent(jButton12)
+                .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -472,7 +487,7 @@ public class MUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(194, 194, 194)
@@ -483,7 +498,7 @@ public class MUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton9)
                 .addGap(21, 21, 21))
@@ -560,9 +575,9 @@ public class MUI extends javax.swing.JFrame {
                     .addComponent(mobile, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                        .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                         .addGap(132, 132, 132)))
                 .addContainerGap())
         );
@@ -596,7 +611,7 @@ public class MUI extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
                     .addComponent(jButton11))
@@ -958,7 +973,7 @@ public class MUI extends javax.swing.JFrame {
                 } else {
                     rel = (Relatives) a.get(x).get(num);
                 }
-                
+
                 //Template method pattern
                 rel.createAcquaintances(Name, Mobile, Email, One, Two, "");
 
@@ -978,7 +993,7 @@ public class MUI extends javax.swing.JFrame {
                 } else {
                     proF = (ProfessionalFriends) a.get(x).get(num);
                 }
-                
+
                 //Template method pattern
                 proF.createAcquaintances(Name, Mobile, Email, One, "", "");
 
@@ -1028,6 +1043,31 @@ public class MUI extends javax.swing.JFrame {
         jPanel3.setVisible(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        DefaultTableModel tableModel = (DefaultTableModel) jXTable1.getModel();
+        tableModel.setRowCount(0);
+        ArrayList<Acquaintances> list;
+        for (int i = 0; i < 4; i++) {
+            try {
+                list = a.get(i);
+                System.out.println(i);
+            } catch (Exception e) {
+                return;
+            }
+            for (int j = 0; j < list.size(); j++) {
+                String[] data = new String[4];
+                data[0] = Integer.toString(j + 1);
+                data[1] = list.get(j).getName();
+                data[2] = list.get(j).getMobileNo();
+                data[3] = list.get(j).getEmail();
+                tableModel.addRow(data);
+            }
+            jXTable1.setModel(tableModel);
+            tableModel.fireTableDataChanged();
+        }
+
+    }//GEN-LAST:event_jButton12ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1069,6 +1109,7 @@ public class MUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
