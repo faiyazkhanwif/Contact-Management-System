@@ -628,13 +628,11 @@ public class MUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         int index = jList1.getSelectedIndex();
-        /*        if (index < 0) {
+        if (index < 0) {
             JOptionPane.showMessageDialog(mg, "Select a category!");
             return;
         }
-        
-        
-         */
+
         //----------------------------------------Command Pattern-------------------------------------------
         AddDeleteManager adm = new AddDeleteManager();
         AcquaintanceVendor advendor = new AcquaintanceVendor(mg, index);
@@ -703,6 +701,7 @@ public class MUI extends javax.swing.JFrame {
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        /*
         int index = jList1.getSelectedIndex();
         if (index < 0) {
             JOptionPane.showMessageDialog(mg, "Select a category!");
@@ -722,8 +721,29 @@ public class MUI extends javax.swing.JFrame {
             a.get(index).remove(tindex);
             JOptionPane.showMessageDialog(mg, "Successfully Deleted");
             mg.setUpTableData();
+        }*/
+        int index = jList1.getSelectedIndex();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(mg, "Select a category!");
+            return;
         }
+        int tindex = jXTable1.getSelectedRow();
+        if (tindex < 0) {
+            JOptionPane.showMessageDialog(mg, "Select an entry!");
+            return;
+        }
+        //----------------------------------------Command Pattern-------------------------------------------
+        AddDeleteManager adm = new AddDeleteManager();
+        AcquaintanceVendor advendor = new AcquaintanceVendor(mg, index, tindex);
+
+        DeleteCommand dcommand = new DeleteCommand(advendor);
+        adm.setCommand(dcommand);
+        adm.buttonWasPressed();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    public ArrayList<ArrayList<Acquaintances>> getA() {
+        return a;
+    }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String s = (String) JOptionPane.showInputDialog(

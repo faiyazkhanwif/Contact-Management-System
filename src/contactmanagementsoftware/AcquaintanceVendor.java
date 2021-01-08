@@ -5,6 +5,7 @@
  */
 package contactmanagementsoftware;
 
+import java.util.ArrayList;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -15,9 +16,11 @@ import javax.swing.JPanel;
  */
 public class AcquaintanceVendor {
 
+    private ArrayList<ArrayList<Acquaintances>> a;
     private boolean flag;
     private boolean dflag;
     int index;
+    int tindex;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     MUI mg;
@@ -27,30 +30,56 @@ public class AcquaintanceVendor {
         this.index = index;
         this.flag = mg.getFlag();
         this.dflag = mg.getDflag();
-
         this.jPanel1 = mg.getjPanel1();
         this.jPanel3 = mg.getjPanel3();
 
     }
-    
-    public void add(){
-        if (index < 0) {
-            JOptionPane.showMessageDialog(mg, "Select a category!");
-            return;
-        }
+
+    public AcquaintanceVendor(MUI mg, int index, int tindex) {
+        this.mg = mg;
+        this.index = index;
+        this.tindex = tindex;
+        this.flag = mg.getFlag();
+        this.dflag = mg.getDflag();
+        this.a = mg.getA();
+        this.jPanel1 = mg.getjPanel1();
+        this.jPanel3 = mg.getjPanel3();
+
+    }
+
+    public void add() {
+
         jPanel1.setVisible(false);
         mg.setjPanel1(jPanel1);
         jPanel3.setVisible(true);
         mg.setjPanel3(jPanel3);
-        
+
         mg.setX(index);
         flag = true;
         mg.setFlag(flag);
         dflag = false;
         mg.setDflag(dflag);
     }
-    
-    public void delete(){
-        
+
+    public void delete() {
+        if (index < 0) {
+            JOptionPane.showMessageDialog(mg, "Select a category!");
+            return;
+        }
+        if (tindex < 0) {
+            JOptionPane.showMessageDialog(mg, "Select an entry!");
+            return;
+        }
+        int n = JOptionPane.showConfirmDialog(
+                mg,
+                "Are you sure you want to delete this?",
+                "Confirm",
+                JOptionPane.YES_NO_OPTION);
+        if (n == 0) {
+            a.get(index).remove(tindex);
+            mg.setA(a);
+            JOptionPane.showMessageDialog(mg, "Successfully Deleted");
+            mg.setUpTableData();
+        }
     }
 }
