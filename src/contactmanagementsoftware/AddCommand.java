@@ -11,14 +11,15 @@ package contactmanagementsoftware;
  */
 public class AddCommand implements Command {
 
-    Acquaintances acq;
+    AcquaintanceVendor acqs;
 
-    public AddCommand(Acquaintances acq) {
-        this.acq = acq;
+    public AddCommand(AcquaintanceVendor acqs) {
+        this.acqs = acqs;
     }
 
     @Override
     public void execute() {
+        acqs.add();
     }
 
 }

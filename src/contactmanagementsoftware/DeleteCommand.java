@@ -11,10 +11,10 @@ package contactmanagementsoftware;
  */
 public class DeleteCommand implements Command {
 
-    Acquaintances acq;
+    AcquaintanceVendor acqs;
 
-    public DeleteCommand(Acquaintances acq) {
-        this.acq = acq;
+    public DeleteCommand(AcquaintanceVendor acqs) {
+        this.acqs = acqs;
     }
 
     @Override

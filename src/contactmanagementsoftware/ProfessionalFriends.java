@@ -12,6 +12,36 @@ public class ProfessionalFriends extends Acquaintances implements Serializable {
         numberProF++;
     }
 
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public void setName(String Name) {
+        super.setName(Name);
+    }
+
+    @Override
+    public String getMobileNo() {
+        return super.getMobileNo();
+    }
+
+    @Override
+    public void setMobileNo(String MobileNo) {
+        super.setMobileNo(MobileNo);
+    }
+
+    @Override
+    public String getEmail() {
+        return super.getEmail();
+    }
+
+    @Override
+    public void setEmail(String Email) {
+        super.setEmail(Email);
+    }
+
     public String getCommonInterests() {
         return CommonInterests;
     }

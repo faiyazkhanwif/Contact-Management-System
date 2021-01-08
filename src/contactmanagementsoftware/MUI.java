@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -624,6 +626,24 @@ public class MUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        int index = jList1.getSelectedIndex();
+        /*        if (index < 0) {
+            JOptionPane.showMessageDialog(mg, "Select a category!");
+            return;
+        }
+        
+        
+         */
+        //----------------------------------------Command Pattern-------------------------------------------
+        AddDeleteManager adm = new AddDeleteManager();
+        AcquaintanceVendor advendor = new AcquaintanceVendor(mg, index);
+
+        AddCommand acommand = new AddCommand(advendor);
+        adm.setCommand(acommand);
+        adm.buttonWasPressed();
+
+        /*  
         int index = jList1.getSelectedIndex();
         if (index < 0) {
             JOptionPane.showMessageDialog(mg, "Select a category!");
@@ -634,8 +654,53 @@ public class MUI extends javax.swing.JFrame {
         x = index;
         flag = true;
         dflag = false;
+         */
         setDescription();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public void setjPanel3(JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+
+    public void setDflag(boolean dflag) {
+        this.dflag = dflag;
+    }
+
+    public int getXX() {
+        return x;
+    }
+
+    public boolean getFlag() {
+        return flag;
+    }
+
+    public boolean getDflag() {
+        return dflag;
+    }
+
+    public JList getjList1() {
+        return jList1;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int index = jList1.getSelectedIndex();
