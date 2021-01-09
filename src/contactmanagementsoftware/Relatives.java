@@ -20,7 +20,7 @@ public class Relatives extends Acquaintances implements Serializable {
     Relatives() {
         numberRel++;
     }
-@Override
+    @Override
     public String getName() {
         return super.getName();
     }

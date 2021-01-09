@@ -19,7 +19,7 @@ public class CasualAcquaintances extends Acquaintances implements Serializable {
     CasualAcquaintances() {
         numberCA++;
     }
-@Override
+    @Override
     public String getName() {
         return super.getName();
     }

@@ -71,7 +71,7 @@ public class MUI extends javax.swing.JFrame {
             mobile.setText(e.getMobileNo());
             email.setText(e.getEmail());
 
-            //Factory method pattern
+            //------------------------------Factory method pattern--------------------------
             AcquaintanceFactory fcaller = new FriendsCaller();
             AcquaintanceFactory rcaller = new RelativesCaller();
             AcquaintanceFactory cacaller = new CasualAcquaintanceCaller();
@@ -272,6 +272,7 @@ public class MUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(237, 240, 247));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newexit.png"))); // NOI18N
+        jButton4.setToolTipText("Close");
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,6 +286,7 @@ public class MUI extends javax.swing.JFrame {
         jLabel2.setText("<html>Contact Management System</html>");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newadd.png"))); // NOI18N
+        jButton1.setToolTipText("Add");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,6 +295,7 @@ public class MUI extends javax.swing.JFrame {
         });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newdelete.png"))); // NOI18N
+        jButton2.setToolTipText("Delete");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,10 +304,8 @@ public class MUI extends javax.swing.JFrame {
         });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
+        jButton3.setToolTipText("Search");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setMaximumSize(new java.awt.Dimension(57, 33));
-        jButton3.setMinimumSize(new java.awt.Dimension(57, 33));
-        jButton3.setPreferredSize(new java.awt.Dimension(57, 33));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -367,7 +368,7 @@ public class MUI extends javax.swing.JFrame {
         jLabel3.setText("Details:");
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit.png"))); // NOI18N
-        jButton5.setActionCommand("");
+        jButton5.setToolTipText("Edit");
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -941,34 +942,7 @@ public class MUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed
 
-    /*
-    public boolean MobileNoChecker(String str) {
-        int x;
-        if (str.isEmpty() || str.length() < 6 || str.length() > 15) {
-            return false;
-        }
-        for (int j = 0; j < str.length(); j++) {
-            x = (int) str.charAt(j);
-            if (x < 48 || x > 57) {
-                return false;
-            }
-        }
-        return true;
-    }
 
-    public boolean validDate(String Date) {
-        String pattern = "[0-3][0-9]/[0-1][0-9]/[0-9]{4}";
-        Pattern r = Pattern.compile(pattern);
-        Matcher m = r.matcher(Date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        if (!m.find()) {
-            JOptionPane.showMessageDialog(mg, "Enter a valid date");
-            return false;
-        } else {
-            return true;
-        }
-    }
-*/
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         dflag = true;
         
