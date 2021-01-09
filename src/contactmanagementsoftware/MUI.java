@@ -942,6 +942,7 @@ public class MUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed
 
+    /*
     public boolean MobileNoChecker(String str) {
         int x;
         if (str.isEmpty() || str.length() < 6 || str.length() > 15) {
@@ -968,16 +969,23 @@ public class MUI extends javax.swing.JFrame {
             return true;
         }
     }
-
+*/
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         dflag = true;
+        
+        
+        
         String Name = name.getText();
         if (Name.isEmpty()) {
             JOptionPane.showMessageDialog(mg, "Enter a name");
             return;
         }
         String Mobile = mobile.getText();
-        if (!MobileNoChecker(Mobile)) {
+        
+        //------------------------------------------------------Strategy Pattern--------------------------------------------------------
+        InformationToBeVerified mobilenumber = new MobileNumber(mg,Mobile);
+        
+        if (!mobilenumber.performValidation()) {
             JOptionPane.showMessageDialog(mg, "Enter a valid mobile number (6-15 digits)");
             return;
         }
@@ -1000,7 +1008,11 @@ public class MUI extends javax.swing.JFrame {
                     return;
                 }
                 Three = three.getText();
-                if (!validDate(Three)) {
+                
+                //------------------------------------------------------Strategy Pattern--------------------------------------------------------
+                InformationToBeVerified date = new Date(mg,Three);
+                
+                if (!date.performValidation()) {
                     return;
                 }
                 if (Three.isEmpty() || Three.length() > 300) {
@@ -1027,7 +1039,10 @@ public class MUI extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(mg, "Enter a valid value ( 1 to 300 chars)");
                     return;
                 }
-                if (!validDate(One)) {
+                
+                //------------------------------------------------------Strategy Pattern--------------------------------------------------------
+                InformationToBeVerified date1 = new Date(mg,One);
+                if (!date1.performValidation()) {
                     return;
                 }
                 Two = two.getText();
@@ -1035,7 +1050,9 @@ public class MUI extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(mg, "Enter a valid value ( 1 to 300 chars)");
                     return;
                 }
-                if (!validDate(Two)) {
+                
+                InformationToBeVerified date2 = new Date(mg,Two);
+                if (!date2.performValidation()) {
                     return;
                 }
                 Relatives rel;
