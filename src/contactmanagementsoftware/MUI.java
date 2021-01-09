@@ -27,7 +27,6 @@ public class MUI extends javax.swing.JFrame {
      * Creates new form MUI
      */
     private static MUI mg;  //static variable for singleton pattern
-    //private MUI mg;
     private ArrayList<ArrayList<Acquaintances>> a;
     private ArrayList<ArrayList<Acquaintances>> temp;
     private int x;

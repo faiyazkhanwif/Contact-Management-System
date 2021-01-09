@@ -5,6 +5,7 @@
  */
 package contactmanagementsoftware;
 
+//Used for Strategy Pattern
 /**
  *
  * @author faiya

@@ -10,6 +10,8 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+
+//Used for Command Pattern
 /**
  *
  * @author faiya

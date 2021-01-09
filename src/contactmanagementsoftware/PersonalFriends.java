@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+
+//Used for Factory method pattern.
+/**
+ *
+ * @author faiya
+ */
 public class PersonalFriends extends Acquaintances implements Serializable{
     private String AContext;
     private String ADate;

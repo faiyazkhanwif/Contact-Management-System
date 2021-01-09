@@ -3,6 +3,12 @@ package contactmanagementsoftware;
 import java.io.Serializable;
 import java.util.Scanner;
 
+
+//Used for Factory method pattern.
+/**
+ *
+ * @author faiya
+ */
 public class CasualAcquaintances extends Acquaintances implements Serializable {
 
     private String WhenWhere;

@@ -5,6 +5,7 @@
  */
 package contactmanagementsoftware;
 
+//Used for Factory method pattern.
 /**
  *
  * @author faiya

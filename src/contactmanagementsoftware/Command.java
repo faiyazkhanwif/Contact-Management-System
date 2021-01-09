@@ -5,6 +5,8 @@
  */
 package contactmanagementsoftware;
 
+
+//Used for Command Pattern
 /**
  *
  * @author faiya

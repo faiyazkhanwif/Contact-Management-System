@@ -3,6 +3,12 @@ package contactmanagementsoftware;
 import java.io.Serializable;
 import java.util.Scanner;
 
+//Used for Template method pattern.
+//Used for Factory method pattern.
+/**
+ *
+ * @author faiya
+ */
 public abstract class Acquaintances implements Serializable {
 
     private String Name;
@@ -13,7 +19,7 @@ public abstract class Acquaintances implements Serializable {
     Acquaintances() {
         number++;
     }
-    //Template method pattern
+    //-------------------------------------------------Template method pattern---------------------------------------------------------------
     final void createAcquaintances(String name, String MobileNo, String Email, String informationOne,
         String informationTwo, String informationThree) {
         setName(name);
