@@ -53,12 +53,12 @@ public class AcquaintanceVendor {
         mg.setjPanel1(jPanel1);
         jPanel3.setVisible(true);
         mg.setjPanel3(jPanel3);
-
         mg.setX(index);
         flag = true;
         mg.setFlag(flag);
         dflag = false;
         mg.setDflag(dflag);
+        mg.setDescription();
     }
 
     public void delete() {
